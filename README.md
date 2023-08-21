@@ -2,3 +2,5 @@
 2) Then, run the command "npm install http-server -g".
 3) To load file in the browser run "http-server".
 4) Open working link in browser (http://localhost:8080/index.html).
+
+Note: first start can last few seconds.
