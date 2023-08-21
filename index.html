@@ -29,7 +29,7 @@
 				<img class="img" src="berlin.jpg" class="trip-card">
 				<div style="padding: 1px 15px;" class="trip-card">
 					<p style="font-size: 13px;" class="cityName">Berlin</p>
-					<p style="font-size: 10px; color: #9A9A9A;" class="date">14.08.2023 - 21.08.2023</p>
+					<p style="font-size: 10px; color: #9A9A9A;" class="date">22.08.2023 - 28.08.2023</p>
 				</div>
 			</div>
 		</li>
@@ -38,7 +38,7 @@
 				<img class="img" src="tokyo.jpg">
 				<div style="padding: 1px 15px;" class="trip-card">
 					<p style="font-size: 13px;" class="cityName">Tokyo</p>
-					<p style="font-size: 10px; color: #9A9A9A;" class="date">17.08.2023 - 23.08.2023</p>
+					<p style="font-size: 10px; color: #9A9A9A;" class="date">22.08.2023 - 27.08.2023</p>
 				</div>
 			</div>
 		</li>
@@ -47,7 +47,7 @@
 				<img class="img" src="barcelona.jpg">
 				<div style="padding: 1px 15px;" class="trip-card">
 					<p style="font-size: 13px;" class="cityName">Barcelona</p>
-					<p style="font-size: 10px; color: #9A9A9A;" class="date">16.08.2023 - 24.08.2023</p>
+					<p style="font-size: 10px; color: #9A9A9A;" class="date">22.08.2023 - 29.08.2023</p>
 				</div>
 			</div>
 		</li>
@@ -77,9 +77,9 @@
 									<option value="Tokyo">Barcelona</option>
 								  </select>
 								  <label for="start-date"><label style="color:#FF585A;">*</label> Start date</label>
-								  <input type="date" id="start-date" name="start-date" min="2023-08-03" max="2023-08-18" required>
+								  <input type="date" id="start-date" name="start-date" min="2023-08-22" max="2023-09-05" required>
 								  <label for="end-date"><label style="color:#FF585A;">*</label> End date</label>
-								  <input type="date" id="end-date" name="end-date" min="2023-08-03" max="2023-08-18" required>
+								  <input type="date" id="end-date" name="end-date" min="2023-08-22" max="2023-09-05" required>
 								</form>
 								<hr>
 								<div class="button" style="text-align: right;">
@@ -220,6 +220,12 @@ console.log()
   });
   
 
+
+  
+  
+
+
+
   const addTripButton = document.getElementById('myBtn');
   const modal = document.getElementById('myModal');
   
@@ -271,12 +277,12 @@ let countdownInterval = null; // Initialize the interval variable
 
     const dateText = tripCard.querySelector('.date').innerText;
 
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','Sunday'];
 
     const date = tripCard.querySelector('.date').textContent;
     const cityName = tripCard.querySelector('.cityName').textContent;
 
-    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=3573L6YFQJQ4SKUSHKGNBMEUE&contentType=json`;
+    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=6U4R8KQF3JZY7KU37Z5P5WZV8&contentType=json`;
 
     fetch(apiUrl)
       .then(response => {
@@ -327,7 +333,6 @@ let countdownInterval = null; // Initialize the interval variable
         console.error('There was a problem with the fetch operation:', error);
       });
 
-
 const container = document.getElementById("weather_trip");
 container.innerHTML = "";
 
@@ -336,10 +341,15 @@ const last_day = dateText.split(" - ")[1].split(".")[0];
 
 let leftPosition = 15; 
 
+var i = true;
+
+while(i){
+
 for (let i = first_day; i <= last_day; i++) {
+
 console.log(i);
   const request = new XMLHttpRequest();
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=3573L6YFQJQ4SKUSHKGNBMEUE&contentType=json`;
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=6U4R8KQF3JZY7KU37Z5P5WZV8&contentType=json`;
 
   request.open("GET", `${url}`, true);
 
@@ -402,6 +412,8 @@ console.log(i);
 	else {
       console.error("Error:", request.status);
     }
+	
+	
   };
 
   request.onerror = function () {
@@ -409,7 +421,15 @@ console.log(i);
   };
 
   request.send();
+  
+  
 }
+
+
+i=false;
+}
+
+
 
 function getWeekDay(dateString) {
   const daysOfWeek = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -478,7 +498,7 @@ function search_trip() {
   <p class="p_content twoContent" style="margin-top: 1%; margin-left: -10%;"><b id="icon" style="font-size: 28px;"></b></p>
   <p class="p_content threeContent" style="margin-left: 8%; margin-top: 8%;"><b id="temperature" style="font-size: 32px; "></b></p><br>
   <p class="p_content twoContent" id="city_name" style="font-size: 28px; text-transform:capitalize; margin-left: 3%;"></p>
-  </div>
+</div>
   
   <br>
   <p class="p_content oneContent"><b id="days" style="font-size: 28px;"></b><br>DAYS</p>
