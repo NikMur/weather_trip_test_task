@@ -282,7 +282,7 @@ let countdownInterval = null; // Initialize the interval variable
     const date = tripCard.querySelector('.date').textContent;
     const cityName = tripCard.querySelector('.cityName').textContent;
 
-    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=6U4R8KQF3JZY7KU37Z5P5WZV8&contentType=json`;
+    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=GX5UDKVURM9DP53D983GA2HTY&contentType=json`;
 
     fetch(apiUrl)
       .then(response => {
@@ -349,7 +349,7 @@ for (let i = first_day; i <= last_day; i++) {
 
 console.log(i);
   const request = new XMLHttpRequest();
-  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=6U4R8KQF3JZY7KU37Z5P5WZV8&contentType=json`;
+  const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=GX5UDKVURM9DP53D983GA2HTY&contentType=json`;
 
   request.open("GET", `${url}`, true);
 
